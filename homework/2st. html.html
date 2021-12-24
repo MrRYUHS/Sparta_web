@@ -35,8 +35,28 @@
             width: 100px;
             margin-left: 200px;
         }
+        .rate{
+            color: blue;
+        }
     </style>
     <script>
+        $(document).ready(function () {
+            get_rate();
+        });
+
+        function get_rate(){
+            $.ajax({
+                type: "GET",
+                url: "http://spartacodingclub.shop/sparta_api/rate",
+                data: {},
+                success: function (response) {
+                    let now_rate = response['rate'];
+                    $('#now-rate').text(now_rate);
+                }
+            })
+        }
+
+
         function hs(){
             alert('주문이 완료되었습니다')
         }
@@ -52,6 +72,7 @@
         <spen class="ti">가격:3000원/개</spen>
     </h1>
     <p>이 전사는 사실 특별한 힘을 가지고 있어요. 이 전사는 모든 전투에서 지혜롭게 싸우며 승리를 이끌어가는 디스 이즈 스파르타!!</p>
+    <p class="rate">달러-원 환율: <span id="now-rate"></span></p>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text">주문자 이름</span>
