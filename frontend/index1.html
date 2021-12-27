@@ -49,6 +49,41 @@
     </style>
 
     <script>
+        $(document).ready(function () {
+            $('#cards-box').empty()
+            listing();
+        });
+
+        function listing() {
+            $.ajax({
+                type: "GET",
+                url: "http://spartacodingclub.shop/post",
+                data: {},
+                success: function (response) {
+                    let rows = response['articles']
+                    for (let i = 0; i < rows.length; i++){
+                        let comment = rows[i]['comment']
+                        let desc = rows[i]['desc']
+                        let image = rows[i]['image']
+                        let title = rows[i]['title']
+                        let url = rows[i]['url']
+
+                        let temp_html = `<div class="card">
+                                                <img class="card-img-top"
+                                                     src="${image}"
+                                                     alt="Card image cap">
+                                                <div class="card-body">
+                                                    <a href="${url}">${title}</a>
+                                                    <p class="card-text">${desc}</p>
+                                                    <p class="card-text coment">${comment}</p>
+                                                </div>
+                                            </div>`
+                        $('#cards-box').append(temp_html)
+                    }
+                }
+            })
+        }
+
         function openclose(){
             let status = $('#post-box').css('display');
             if (status == 'block'){
@@ -90,7 +125,7 @@
     <div class="card-columns" id="cards-box">
         <div class="card">
             <img class="card-img-top"
-                 src="https://lh3.googleusercontent.com/proxy/8pPBoiNWDqFTvQM6mAcKcWCrPscfLkGx6umDo3hQAM7roGkRhdAZF9bUH2K0F8Korbt3kVc5gzO7HUnoXpZbHjaho0E-BJJoWPABznW0pN2_a14Z"
+                 src="https://ww.namu.la/s/5f8a3ecdb10e51f003c5ccf059b7eb3c746ebae0e4572b2667f4f032f1d47c7b88a0337b8b4e0505810335743fa9d6c03980b6d18db3122c496c25abd1a13bfc2a75916ece0a0b1de357c350e2262f4c"
                  alt="Card image cap">
             <div class="card-body">
                 <a href="http://naver.com/"> 여기 기사 제목이 들어가죠 </a>
@@ -100,7 +135,7 @@
         </div>
         <div class="card">
             <img class="card-img-top"
-                 src="https://lh3.googleusercontent.com/proxy/8pPBoiNWDqFTvQM6mAcKcWCrPscfLkGx6umDo3hQAM7roGkRhdAZF9bUH2K0F8Korbt3kVc5gzO7HUnoXpZbHjaho0E-BJJoWPABznW0pN2_a14Z"
+                 src="https://ww.namu.la/s/5f8a3ecdb10e51f003c5ccf059b7eb3c746ebae0e4572b2667f4f032f1d47c7b88a0337b8b4e0505810335743fa9d6c03980b6d18db3122c496c25abd1a13bfc2a75916ece0a0b1de357c350e2262f4c"
                  alt="Card image cap">
             <div class="card-body">
                 <a href="http://naver.com/"> 여기 기사 제목이 들어가죠 </a>
@@ -110,7 +145,7 @@
         </div>
         <div class="card">
             <img class="card-img-top"
-                 src="https://lh3.googleusercontent.com/proxy/8pPBoiNWDqFTvQM6mAcKcWCrPscfLkGx6umDo3hQAM7roGkRhdAZF9bUH2K0F8Korbt3kVc5gzO7HUnoXpZbHjaho0E-BJJoWPABznW0pN2_a14Z"
+                 src="https://ww.namu.la/s/5f8a3ecdb10e51f003c5ccf059b7eb3c746ebae0e4572b2667f4f032f1d47c7b88a0337b8b4e0505810335743fa9d6c03980b6d18db3122c496c25abd1a13bfc2a75916ece0a0b1de357c350e2262f4c"
                  alt="Card image cap">
             <div class="card-body">
                 <a href="http://naver.com/"> 여기 기사 제목이 들어가죠 </a>
@@ -120,7 +155,7 @@
         </div>
         <div class="card">
             <img class="card-img-top"
-                 src="https://lh3.googleusercontent.com/proxy/8pPBoiNWDqFTvQM6mAcKcWCrPscfLkGx6umDo3hQAM7roGkRhdAZF9bUH2K0F8Korbt3kVc5gzO7HUnoXpZbHjaho0E-BJJoWPABznW0pN2_a14Z"
+                 src="https://ww.namu.la/s/5f8a3ecdb10e51f003c5ccf059b7eb3c746ebae0e4572b2667f4f032f1d47c7b88a0337b8b4e0505810335743fa9d6c03980b6d18db3122c496c25abd1a13bfc2a75916ece0a0b1de357c350e2262f4c"
                  alt="Card image cap">
             <div class="card-body">
                 <a href="http://naver.com/"> 여기 기사 제목이 들어가죠 </a>
@@ -130,7 +165,7 @@
         </div>
         <div class="card">
             <img class="card-img-top"
-                 src="https://lh3.googleusercontent.com/proxy/8pPBoiNWDqFTvQM6mAcKcWCrPscfLkGx6umDo3hQAM7roGkRhdAZF9bUH2K0F8Korbt3kVc5gzO7HUnoXpZbHjaho0E-BJJoWPABznW0pN2_a14Z"
+                 src="https://ww.namu.la/s/5f8a3ecdb10e51f003c5ccf059b7eb3c746ebae0e4572b2667f4f032f1d47c7b88a0337b8b4e0505810335743fa9d6c03980b6d18db3122c496c25abd1a13bfc2a75916ece0a0b1de357c350e2262f4c"
                  alt="Card image cap">
             <div class="card-body">
                 <a href="http://naver.com/"> 여기 기사 제목이 들어가죠 </a>
@@ -140,7 +175,7 @@
         </div>
         <div class="card">
             <img class="card-img-top"
-                 src="https://lh3.googleusercontent.com/proxy/8pPBoiNWDqFTvQM6mAcKcWCrPscfLkGx6umDo3hQAM7roGkRhdAZF9bUH2K0F8Korbt3kVc5gzO7HUnoXpZbHjaho0E-BJJoWPABznW0pN2_a14Z"
+                 src="https://ww.namu.la/s/5f8a3ecdb10e51f003c5ccf059b7eb3c746ebae0e4572b2667f4f032f1d47c7b88a0337b8b4e0505810335743fa9d6c03980b6d18db3122c496c25abd1a13bfc2a75916ece0a0b1de357c350e2262f4c"
                  alt="Card image cap">
             <div class="card-body">
                 <a href="http://naver.com/"> 여기 기사 제목이 들어가죠 </a>
